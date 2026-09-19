@@ -10,9 +10,9 @@ const eventConfig = {
     tagline: "Think • Solve • Innovate",
     currentRound: 3, // 1, 2, or 3
     rounds: [
-        { id: 1, name: "Round 1", title: "Rapid Reckoning" },
-        { id: 2, name: "Round 2", title: "Logic Labyrinth" },
-        { id: 3, name: "Round 3", title: "Infinity Showdown" }
+        { id: 1, name: "Round 1", title: "Mind Strike" },
+        { id: 2, name: "Round 2", title: "Ninja Rush" },
+        { id: 3, name: "Round 3", title: "Buzzer Battle" }
     ]
 };
 
