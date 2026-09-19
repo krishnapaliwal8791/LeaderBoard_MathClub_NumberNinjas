@@ -29,7 +29,7 @@ const teams = [
     { name: "Ramanujan Geniuses", r1: 95, r2: 94, r3: 98 },
     { name: "Pythagoras Primes", r1: 85, r2: 89, r3: 75 },
     { name: "Fibonacci Sequence", r1: 91, r2: 93, r3: 88 },
-    { name: "Newton Apples", r1: 78, r2: 85, r3: 80 },
+    { name: "Newton Apples", r1: 0, r2: 0, r3: 0},
     { name: "Turing Machines", r1: 89, r2: 92, r3: 91 },
     { name: "Cantor Infinities", r1: 75, r2: 70, r3: 65 },
     { name: "Newton Apples", r1: 78, r2: 85, r3: 80 },
