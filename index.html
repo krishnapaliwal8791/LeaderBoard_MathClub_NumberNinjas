@@ -7,6 +7,73 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Hamburger Menu Button -->
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+
+    <!-- Side Drawer -->
+    <aside id="side-drawer" class="side-drawer">
+        <div class="drawer-header">
+            <h2>Dashboard</h2>
+            <button id="menu-close" class="menu-close">&times;</button>
+        </div>
+        
+        <!-- ROUND PROGRESS TRACKER -->
+        <section class="round-tracker" id="round-tracker">
+            <!-- Dynamically populated from JS -->
+        </section>
+
+        <!-- EVENT & STATS PANELS -->
+        <section class="event-panels">
+            <!-- Event Control Panel -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <span>Event Controls</span>
+                </div>
+                <div class="control-group">
+                    <span>Auto Refresh</span>
+                    <label class="switch">
+                        <input type="checkbox" id="auto-refresh-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="control-group">
+                    <span>Interval</span>
+                    <select id="refresh-interval-select">
+                        <option value="5">5 Seconds</option>
+                        <option value="10">10 Seconds</option>
+                        <option value="15">15 Seconds</option>
+                        <option value="30">30 Seconds</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Live Statistics Panel -->
+            <div class="stats-panel">
+                <div class="panel-header">
+                    <span>Live Statistics</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-label">Current Round</div>
+                        <div class="stat-value" id="stat-round">-</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Total Teams</div>
+                        <div class="stat-value" id="stat-teams">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Top Team</div>
+                        <div class="stat-value" id="stat-top-team">-</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Top Score / Time</div>
+                        <div class="stat-value" id="stat-top-score">-</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </aside>
+
     <!-- Subtle Background Math Elements -->
     <div class="math-bg">
         <span class="math-sym sym-1">π</span>
@@ -19,48 +86,54 @@
 
     <div class="container fade-in">
         <!-- HEADER -->
-        <header>
+        <header id="main-header">
             <div class="logo-container">
                 <img src="assets/logo.png" alt="Math Club Logo" id="club-logo">
             </div>
             <div class="header-titles">
                 <h2 id="club-name">MITS Mathematics Club</h2>
                 <h1 id="event-name">NUMBER NINJAS</h1>
+                <h3 id="fullscreen-round-name"></h3>
                 <p id="event-tagline">Think • Solve • Innovate</p>
             </div>
         </header>
 
-        <!-- ROUND PROGRESS TRACKER -->
-        <section class="round-tracker" id="round-tracker">
-            <!-- Dynamically populated from JS -->
-        </section>
-
-        <!-- LEADERBOARD TITLE -->
-        <section class="leaderboard-title">
-            <h2>LEADERBOARD</h2>
-            <div class="divider"></div>
-        </section>
+        <!-- STATUS DASHBOARD -->
+        <div class="status-dashboard" id="status-dashboard">
+            <span class="status-item" id="connection-status">🔴 Offline</span>
+            <span class="status-item" id="change-status">Waiting for data...</span>
+            <span class="status-item" id="next-refresh">Next refresh in: --</span>
+            <span class="status-item">
+                <button id="manual-refresh-btn" class="btn">Refresh Now</button>
+            </span>
+            <span class="status-item">
+                <button id="fullscreen-btn" class="btn btn-secondary">Full Screen Mode</button>
+            </span>
+        </div>
 
         <!-- LEADERBOARD TABLE -->
-        <main class="table-container">
+        <main class="table-container table-wrapper">
+            <div class="loading-overlay" id="loading-overlay">
+                <div class="spinner"></div>
+            </div>
             <table id="leaderboard-table">
-                <thead>
-                    <tr>
-                        <th class="col-rank">Rank</th>
-                        <th class="col-team">Team Name</th>
-                        <th class="col-score">Round 1</th>
-                        <th class="col-score">Round 2</th>
-                        <th class="col-score">Round 3</th>
-                        <th class="col-total">Total</th>
-                    </tr>
+                <thead id="leaderboard-head">
+                    <!-- Populated by JS -->
                 </thead>
                 <tbody id="leaderboard-body">
                     <!-- Populated by JS -->
                 </tbody>
             </table>
+            <!-- Pagination Indicator -->
+            <div id="page-indicator" class="page-indicator"></div>
         </main>
     </div>
 
+    <!-- Fullscreen Exit Button -->
+    <button id="exit-fullscreen-btn" class="btn hidden-btn">Exit Full Screen</button>
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>
 </html>
