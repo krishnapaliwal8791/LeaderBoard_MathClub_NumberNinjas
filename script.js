@@ -14,7 +14,7 @@ const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
  */
 const eventConfig = {
     eventName: "NUMBER NINJAS",
-    clubName: "MITS Mathematics Club",
+    clubName: "Mathematics Club",
     tagline: "Think • Solve • Innovate",
     rounds: [
         { id: 1, name: "Round 1", title: "Mind Strike", tableName: "round1" },
