@@ -315,6 +315,12 @@ tbody tr:hover td {
     color: var(--primary);
 }
 
+/* Ensure score values are high-contrast black on all rows */
+td.col-score,
+td.col-total {
+    color: #000000;
+}
+
 /* Rank Highlights */
 tr.rank-1 td { background-color: var(--gold-bg); }
 tr.rank-1 .col-rank { color: #B8860B; font-size: 1.8rem; font-weight: 800; }
